@@ -10,6 +10,7 @@ import App from '@/App';
 
 describe('<App />', () => {
   it('renders without errors', () => {
+    // @ts-expect-error FIXME
     render(<App />);
   });
 });

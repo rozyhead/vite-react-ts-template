@@ -1,14 +1,19 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 
 import { Box, Button, Flex, Image, Link, Text } from '@chakra-ui/react';
 
 import ThemeToggleButton from '@/components/ThemeToggleButton';
 import logo from './logo.svg';
+import GraphQLUser, { GraphQLUserProps } from './components/GraphQLUser';
 
 const textFontSizes = [16, 18, 24, 30];
 
-const App = (): JSX.Element => {
+type AppProps = {
+  graphQLUserQuery: GraphQLUserProps['queryReference'];
+};
+
+const App: React.VFC<AppProps> = ({ graphQLUserQuery }) => {
   const [count, setCount] = useState(0);
 
   return (
@@ -34,6 +39,9 @@ const App = (): JSX.Element => {
         <Text fontSize={textFontSizes}>
           Hello Vite + React + Typescript + Chakra UI!
         </Text>
+        <Suspense fallback={<Text>Loading...</Text>}>
+          <GraphQLUser queryReference={graphQLUserQuery} />
+        </Suspense>
         <Button
           colorScheme="blue"
           fontSize={textFontSizes}
