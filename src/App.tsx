@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { Box, Button, Flex, Image, Link, Text } from '@chakra-ui/react';
 
-import ThemeToggleButton from './components/ThemeToggleButton';
+import ThemeToggleButton from '@/components/ThemeToggleButton';
 import logo from './logo.svg';
 
 const textFontSizes = [16, 18, 24, 30];
