@@ -11,6 +11,7 @@ module.exports = {
   coverageDirectory: '<rootDir>/coverage/',
   coveragePathIgnorePatterns: ['(tests/.*.mock).(jsx?|tsx?)$', '(.*).d.ts$'],
   moduleNameMapper: {
+    '^@/(.+)': '<rootDir>/src/$1',
     '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$':
       'identity-obj-proxy',
   },
