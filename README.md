@@ -1,6 +1,6 @@
 # ReactTS 17 with Chakra UI and Vite
 
-This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) + [Chakra UI](https://chakra-ui.com) boilerplate to be built with [Vite](https://vitejs.dev). It also includes [Husky](https://typicode.github.io/husk) and a pre-commit hook that runs `yarn format`.
+This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) + [Chakra UI](https://chakra-ui.com) boilerplate to be built with [Vite](https://vitejs.dev). It also includes [Husky](https://typicode.github.io/husk) and a pre-commit hook that runs [lint-staged](https://github.com/okonet/lint-staged)
 
 ## What's inside?
 
@@ -14,6 +14,8 @@ This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang
 - [Eslint](https://eslint.org)
 - [Prettier](https://prettier.io)
 - [Husky](https://typicode.github.io/husky)
+- [lint-staged](https://github.com/okonet/lint-staged)
+- [EditorConfig](https://editorconfig.org/)
 
 \+ other smaller dependencies
 
@@ -52,7 +54,7 @@ This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 
 ## Other commands
 
@@ -64,7 +66,7 @@ This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang
   ```
 - Run eslint with fixing
   ```bash
-  yarn lint:fix
+  yarn lint --fix
   ```
 
 ### Build commands
@@ -82,6 +84,10 @@ yarn build
 - Watch tests
   ```bash
   yarn test:watch
+  ```
+- Run coverage report server
+  ```bash
+  yarn report
   ```
 
 ## License
