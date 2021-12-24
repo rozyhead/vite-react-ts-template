@@ -14,8 +14,8 @@
     "serve": "vite preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "test": "jest --colors --passWithNoTests",
-    "posttest": "npx http-server coverage/lcov-report",
     "test:watch": "yarn test --collectCoverage=false --watch",
+    "report": "npx http-server coverage/lcov-report",
     "prepare": "husky install"
   },
   "dependencies": {
