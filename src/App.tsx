@@ -1,20 +1,28 @@
 import { motion } from 'framer-motion';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import { Box, Button, Flex, Image, Link, Text } from '@chakra-ui/react';
 
 import ThemeToggleButton from '@/components/ThemeToggleButton';
 import logo from './logo.svg';
-import GraphQLUser, { GraphQLUserProps } from './components/GraphQLUser';
+import GraphQLUser, {
+  GraphQLUserQuery,
+  GraphQLUserQueryType,
+} from './components/GraphQLUser';
+import { useQueryLoader } from 'react-relay';
 
 const textFontSizes = [16, 18, 24, 30];
 
-type AppProps = {
-  graphQLUserQuery: GraphQLUserProps['queryReference'];
-};
-
-const App: React.VFC<AppProps> = ({ graphQLUserQuery }) => {
+const App: React.VFC = () => {
   const [count, setCount] = useState(0);
+
+  const [queryReference, loadQuery, disposeQuery] =
+    useQueryLoader<GraphQLUserQueryType>(GraphQLUserQuery);
+
+  useEffect(() => {
+    loadQuery({});
+    return disposeQuery;
+  }, [disposeQuery, loadQuery]);
 
   return (
     <Box>
@@ -40,7 +48,7 @@ const App: React.VFC<AppProps> = ({ graphQLUserQuery }) => {
           Hello Vite + React + Typescript + Chakra UI!
         </Text>
         <Suspense fallback={<Text>Loading...</Text>}>
-          <GraphQLUser queryReference={graphQLUserQuery} />
+          {queryReference && <GraphQLUser queryReference={queryReference} />}
         </Suspense>
         <Button
           colorScheme="blue"
